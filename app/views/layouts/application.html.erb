@@ -12,10 +12,15 @@
       <div class="container-fluid">
         <div class="navbar-header">
           <ul class="nav navbar-nav navbar-left">
+          <% if current_user %>
+            <li>Logged in as <%= current_user.email %></li>
+            <li><%= link_to "Log Out", log_out_path %></li>
+          <% else %>
             <li><%= link_to 'Sign Up', new_user_path %></li>
           </ul>
           <ul class="nav navbar-nav navbar-left">
             <li><%= link_to 'Log in', log_in_path %></li>
+            <% end %>
           </ul>
         </div>
       </div>
@@ -23,9 +28,7 @@
 
 
     <%=  flash[:notice]  %>
-    <%= @current_user %>
-
-
+    <%= flash[:alert] %>
 
 
   <div class="container">
