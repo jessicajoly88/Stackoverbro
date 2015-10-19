@@ -6,15 +6,31 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<div class="container">
+
   <body>
-    <nav>
-      <li><%= link_to 'Sign-Up', new_user_path %></li>
-      <li><%= link_to 'Log in', log_in_path %></li>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <ul class="nav navbar-nav navbar-left">
+            <li><%= link_to 'Sign Up', new_user_path %></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-left">
+            <li><%= link_to 'Log in', log_in_path %></li>
+          </ul>
+        </div>
+      </div>
     </nav>
 
+
+    <%=  flash[:notice]  %>
+    <%= @current_user %>
+
+
+
+
+  <div class="container">
   <%= yield %>
 
   </body>
-</div>
+  </div>
 </html>
