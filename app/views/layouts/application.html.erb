@@ -24,12 +24,15 @@
             <li><%= link_to 'Log in', log_in_path %></li>
             <% end %>
           </ul>
+          <ul class="nav navbar-nav navbar-left">
+              <li><%= link_to 'Home', root_path %></li>
+          </ul>
         </div>
       </div>
     </nav>
 
 
-    
+
     <%= flash[:alert] %>
 
 

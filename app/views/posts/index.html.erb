@@ -1,1 +1,10 @@
-<h1>Posts</h1>
+<h1>Stack Yo</h1>
+<br>
+
+<ul>
+  <% @posts.each do |post| %>
+  <div class="jumbalaya">
+    <legend><li><%= link_to 'post.title', user_post_path  %></li></legend>
+  </div>
+  <% end %>
+</ul>
