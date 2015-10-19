@@ -1,2 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.navbar {
+  border: none;
+}
+
+.navbar-link {
+  color: black !important;
+  font-size: 1.0em;
+}
