@@ -31,19 +31,37 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    if @post.update(post_params)
-      redirect_to post_path(@post)
-    else
-      render :edit
-    end
+      if current_user
+        if @post.user_id == current_user.id
+          if @post.update(post_params)
+            redirect_to post_path(@post)
+          else
+            render :edit
+          end
+        else
+          flash[:alert] = "You Cannot Edit A Post If You Didn't Write It"
+          redirect_to post_path
+        end
+      else
+        flash[:alert] = "You must be signed in to edit a post"
+        redirect_to posts_path
+      end
   end
 
   def destroy
     @post = Post.find(params[:id])
-    @post.destroy
-    redirect_to posts_path
+      if current_user
+        if @post.user_id == current_user.id
+          @post.destroy
+        else
+          flash[:alert] = "You Cannot Delete A Post If You Didn't Write It"
+          redirect_to post_path
+        end
+      else
+        flash[:alert] = "You must be signed in to edit a post"
+        redirect_to posts_path
+      end
   end
-
 
   private
 
