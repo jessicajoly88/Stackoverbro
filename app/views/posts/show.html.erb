@@ -8,14 +8,24 @@
                             :method => "delete"} %>
 <% end %>
 
+<%= link_to "Answer Post", new_post_answer_path(@post, @user) %>
+
 
 <% if @post.answers.any? %>
   <h4>Answers</h4>
     <% @post.answers.each do |answer| %>
       <li><%=answer.created_at %> <%= answer.user.email %> says:
       <%= answer.content %></li>
+        <% if current_user %>
+
+        <%= link_to 'Edit Answer', edit_post_answer_path(@post, answer) %>
+        <%= link_to 'Delete Answer', post_answer_path(@post, answer),
+                              :data => {:confirm => "Ya sure mate?",
+                              :method => "delete"} %>
+
+
+
+
+        <% end %>
     <% end %>
 <% end %>
-
-
-<%= link_to "Answer Post", new_post_answer_path(@post, @user) %>
