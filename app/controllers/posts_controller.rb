@@ -8,18 +8,23 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = @user.posts.new(post_params)
-    @post.user = current_user
-    if @post.save
-      redirect_to
+    if current_user
+      @post = current_user.posts.new(post_params)
+      if @post.save
 
-
+        redirect_to post_path(@post)
+      else
+        render :new
+      end
+    else
+      redirect_to posts_path
+    end
   end
 
 
   def show
     @post = Post.find(params[:id])
-  #   # @answers = @post.answers
+
   end
 
 
@@ -29,5 +34,4 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :body)
   end
 
-end
 end

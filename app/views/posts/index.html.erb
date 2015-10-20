@@ -1,14 +1,5 @@
 <h1>Stack Yo</h1>
 <br>
 <% if current_user %>
-<%= link_to 'Create Post', new_user_post_path(current_user) %>
+<%= link_to 'Create Post', new_post_path %>
 <% end %>
-
-
-<ul>
-  <% @posts.each do |post| %>
-  <div class="jumbalaya">
-    <legend><li><%= link_to 'post.title', user_post_path  %></li></legend>
-  </div>
-  <% end %>
-</ul>
