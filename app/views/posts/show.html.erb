@@ -1,3 +1,13 @@
 <h2><%= @post.title %></h2>
 
 <h5><%= @post.body %></h5>
+
+<% if @post.answers.any? %>
+  <h4>Answers</h4>
+    <% @post.answers.each do |answer| %>
+      <li><%= answer.content %></li>
+    <% end %>
+<% end %>
+
+
+<%= link_to "Answer Post", new_post_answer_path(@post) %>

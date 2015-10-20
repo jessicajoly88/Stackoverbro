@@ -1,0 +1,5 @@
+<%= form_for [@post, @answer ] do |f| %>
+<%= f.label "Content" %>
+<%= f.text_area "content" %>
+<%= f.submit "Answer" %>
+<% end %>
