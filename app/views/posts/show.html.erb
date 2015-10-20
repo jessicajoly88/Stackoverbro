@@ -5,9 +5,10 @@
 <% if @post.answers.any? %>
   <h4>Answers</h4>
     <% @post.answers.each do |answer| %>
-      <li><%= answer.content %></li>
+      <li><%=answer.created_at %> <%= answer.user.email %> says:
+      <%= answer.content %></li>
     <% end %>
 <% end %>
 
 
-<%= link_to "Answer Post", new_post_answer_path(@post) %>
+<%= link_to "Answer Post", new_post_answer_path(@post, @user) %>

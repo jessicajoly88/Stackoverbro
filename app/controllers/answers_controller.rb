@@ -8,8 +8,9 @@ class AnswersController < ApplicationController
     if current_user
       @post = Post.find(params[:post_id])
       @answer = @post.answers.new(answer_params)
+      @answer.user = current_user
       if @answer.save
-        redirect_to post_path(@post)
+         redirect_to post_path(@post)
       else
         render :new
       end
