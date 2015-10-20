@@ -1,5 +1,9 @@
 <h1>Stack Yo</h1>
 <br>
+<% if current_user %>
+<%= link_to 'Create Post', new_user_post_path(current_user) %>
+<% end %>
+
 
 <ul>
   <% @posts.each do |post| %>
