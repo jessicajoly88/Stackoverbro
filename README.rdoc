@@ -1,5 +1,16 @@
 == README
 
+if you're interested this is the link that we used to set up authentification
+http://nycda.com/blog/basic-user-authentication-model-in-rails-4/
+
+
+
+
+
+
+
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
