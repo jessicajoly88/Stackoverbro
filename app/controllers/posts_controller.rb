@@ -11,12 +11,12 @@ class PostsController < ApplicationController
     if current_user
       @post = current_user.posts.new(post_params)
       if @post.save
-
         redirect_to post_path(@post)
       else
         render :new
       end
     else
+      flash[:alert] = "You must be logged in to create a post!"
       redirect_to posts_path
     end
   end
